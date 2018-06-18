@@ -30,7 +30,7 @@ class ProxyMiddleware(object):
 
         self.proxyCount = 0
         if self.backSelfCount >= 10:
-            #try 10 times and back to sel ip
+            #　try 10 times and back to sel ip
             logging.info('using self ip')
             self.backSelfCount = 0
             self.proxy = ''

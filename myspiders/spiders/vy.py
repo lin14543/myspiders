@@ -67,6 +67,8 @@ class VySpider(scrapy.Spider):
         },
 
         DOWNLOAD_TIMEOUT=20,
+        # LOG_LEVEL='DEBUG',
+        LOG_LEVEL='INFO',
 
         CLOSESPIDER_TIMEOUT=60 * 60 * 2,
         COOKIES_ENABLED=True,

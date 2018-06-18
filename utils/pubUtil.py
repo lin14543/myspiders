@@ -43,7 +43,7 @@ def analysisData(data):
     return (dt, dep, to)
 
 
-def getUrl(carrier,num=1):
+def getUrl(carrier, num=1):
     params = {
         'carrier': carrier,
         'num': num,
@@ -129,7 +129,7 @@ def heartbeat(name, carrier, num, permins):
     params = {
         'carrier': carrier,
         'num': num,
-        'name': name,
+        'host': name,
         'permins': permins or 0
     }
     try:
@@ -138,9 +138,10 @@ def heartbeat(name, carrier, num, permins):
         return 'heartbeat error'
 
 if __name__ == '__main__':
-    task = {
-        'arrAirport': 'BHX',
-        'date': '20180615',
-        'depAirport': 'VIE',
-    }
-    print(invalidData('invalid', [task], 'http://dx.spider2.jiaoan100.com/br/newairline?carrier=ew', 'lin'))
+    # task = {
+    #     'arrAirport': 'BHX',
+    #     'date': '20180615',
+    #     'depAirport': 'VIE',
+    # }
+    # print(invalidData('invalid', [task], 'http://dx.spider2.jiaoan100.com/br/newairline?carrier=ew', 'lin'))
+    heartbeat('lin', 'VY', 1, 60)

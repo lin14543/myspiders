@@ -22,6 +22,10 @@ def get_random_url(data_dict):
             return k
 
 
+def gen_email_conent(row):
+    return row
+
+
 def str_to_stamp(str_date):
     format_date = '%a, %d %b %Y%H:%M'
     datetime_date = time.strptime(str_date, format_date)
