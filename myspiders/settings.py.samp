@@ -1,0 +1,73 @@
+# -*- coding: utf-8 -*-
+
+# Scrapy settings for myspiders project
+#
+# For simplicity, this file contains only settings considered important or
+# commonly used. You can find more settings consulting the documentation:
+#
+#     https://doc.scrapy.org/en/latest/topics/settings.html
+#     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+#     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+
+BOT_NAME = 'myspiders'
+
+SPIDER_MODULES = ['myspiders.spiders']
+NEWSPIDER_MODULE = 'myspiders.spiders'
+
+DOWNLOADER_MIDDLEWARES = {
+   'myspiders.middlewares.ProxyMiddleware': 543,
+   # 'myspiders.middlewares.StatisticsItem': 400,
+}
+
+ITEM_PIPELINES = {
+   'myspiders.pipelines.MyspidersPipeline': 300,
+}
+
+CARRIER_SITE = {
+    'BE': 'https://www.flybe.com/',
+}
+
+
+# Crawl responsibly by identifying yourself (and your website) on the user-agent
+#USER_AGENT = 'myspiders (+http://www.yourdomain.com)'
+
+# Obey robots.txt rules
+ROBOTSTXT_OBEY = False
+
+#日志处理
+LOG_LEVEL = 'INFO'
+GET_URL_TIMEOUT = 60
+
+GET_PROXY_URL = '。。。。。' # 如果有代理可以在这个参数里设置获取代理的链接
+
+# 这些是和Flask API部分的交互链接
+GET_TASK_URL = 'http://127.0.0.1:5000/gettask?' # 获取爬虫任务
+GET_CMD_URL = 'http://127.0.0.1:5000/getcmd?' # 获取本机命令
+HEARTBEAT_URL = 'http://127.0.0.1:5000/heartbeat?' #爬虫心跳证明自己是活的
+
+MONITOR_DURATION = 5 * 60 # 辅助脚本休息时间，即两次检查主机cpu以及内存信息的间隔
+
+DB_HOST = '127.0.0.1' # 主机名
+DB_PORT = 3306  # 端口号
+DB_USER = 'root' # 数据库用户
+DB_PWD = 'lin' # 数据库密码
+DB_NAME = 'tickets' # 数据库名字
+
+# email util settings
+
+SENDER = [ # 发送者邮箱
+    '1697160859@qq.com'
+]
+
+
+SPIDER_RECEIVERS = [ # 接收者邮箱
+    '1697160859@qq.com',
+ ]
+
+HOST_SERVER = 'smtp.qq.com' #改成自己邮箱对应的服务器，我用的是QQ邮箱
+
+PWD = [ # 对应发送者邮箱的授权码, 我改了，不会让你们用我邮箱发东西的，哈哈~~~
+    'hhxbmixpdlpgbcdef',
+]
+
+
